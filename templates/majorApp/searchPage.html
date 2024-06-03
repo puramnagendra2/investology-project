@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investology-Search</title>
+    <link rel="stylesheet" href="{% static 'css/searchPage.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Investology</div>
+        <div class="search-box">
+            {% if alert_message %}
+            <script>
+                alert("Redirecting to SearchPage. Please Enter Company Symbol!");
+            </script>
+            {% endif %}
+            <form method="POST" action="{% url 'majorApp:searching' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <select name="c_name" class="choose">
+                        <option value="" selected>Select Company</option>
+                        {% for option in options %}
+                        <option value="{{ option.value }}">{{ option.text }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" name="search">Search</button>
+                </div>
+                <p class="disclaimer">Disclaimer: All content on this site is for informational purposes of a general nature only,
+                    <br>and does not address any circumstances of any particular individual or entity</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

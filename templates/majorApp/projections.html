@@ -1,0 +1,58 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Investology-Projections{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css">
+    <link rel="stylesheet" href="{% static 'css/projections.css' %}">
+</head>
+<body>
+{% include 'majorApp/navigation.html' %}
+{% block content %}
+<div class="card-container">
+    <div class="card" style="background-color: #4a90e2; color: white;">
+        <h2>26K</h2>
+        <p>Users</p>
+        <p>-12.4%</p>
+    </div>
+    <div class="card" style="background-color: #50e3c2; color: white;">
+        <h2>$6,200</h2>
+        <p>Income</p>
+        <p>40.9%</p>
+    </div>
+    <div class="card" style="background-color: #f5a623; color: white;">
+        <h2>2.49%</h2>
+        <p>Conversion Rate</p>
+        <p>84.7%</p>
+    </div>
+    <div class="card" style="background-color: #d0021b; color: white;">
+        <h2>44K</h2>
+        <p>Sessions</p>
+        <p>-23.6%</p>
+    </div>
+</div>
+<div class="card-container">
+    <div class="card" style="background-color: #4a90e2; color: white;">
+        <h2>26K</h2>
+        <p>Users</p>
+        <p>-12.4%</p>
+    </div>
+    <div class="card" style="background-color: #50e3c2; color: white;">
+        <h2>$6,200</h2>
+        <p>Income</p>
+        <p>40.9%</p>
+    </div>
+    <div class="card" style="background-color: #f5a623; color: white;">
+        <h2>2.49%</h2>
+        <p>Conversion Rate</p>
+        <p>84.7%</p>
+    </div>
+    <div class="card" style="background-color: #d0021b; color: white;">
+        <h2>44K</h2>
+        <p>Sessions</p>
+        <p>-23.6%</p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+{% endblock %}
+</body>

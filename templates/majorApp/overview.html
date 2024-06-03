@@ -1,0 +1,33 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Investology-Overview{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css">
+    <link rel="stylesheet" href="{% static 'css/overview.css' %}">
+</head>
+<body>
+{% include 'majorApp/navigation.html' %}
+{% block content %}
+<div class="chart-container">
+    <div class="chart-header">
+        <p style="color: black;"><b style="font-size: 30px;"><u>Summary of {{c_name}}</u></b><br><br>{{summary}}</p>
+    </div>
+</div>
+<div class="card-container" style="left: 7.5; margin-left: 0px;">
+    <div class="card" style="background-color: #4a90e2; color: white; align-items: normal">
+            <h5>{{ first_officer_info.name }}</h5>
+            <h5>{{ first_officer_info.title }}</h5>
+    </div>
+    <div class="card" style="background-color: #50e3c2; color: white;">
+            <h5>{{ industry }}</h5>
+            <h5>{{ sector }}</h5>
+    </div>
+    <div class="card" style="background-color: #f5a623; color: white;">
+            <h5>Website</h5>
+            <a>{{ website }}</a>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+{% endblock %}
+</body>

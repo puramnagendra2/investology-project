@@ -1,0 +1,32 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investology-Navigation</title>
+    <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
+</head>
+<body>
+<!---
+    <div class="header">
+        <div class="search-container">
+	        <form method="post" action="{% url 'majorApp:navigation' %}">
+            {% csrf_token %}
+                <input type="text" name="cname" placeholder="Search for Company">
+                <button type="submit" name="task" value="search">Search</button>
+            </form>
+	    </div>
+    </div>
+-->
+    <div class="footer">
+	    <form method="post" action="{% url 'majorApp:navigation' %}">
+            {% csrf_token %}
+            <button type="submit" name="task" value="home">Home</button>
+            <button type="submit" name="task" value="overview">Overview</button>
+            <button type="submit" name="task" value="financials" >Financials</button>
+            <button type="submit" name="task" value="fundamentals" >Fundamentals</button>
+            <button type="submit" name="task" value="projections" >Projections</button>
+        </form>
+    </div>
+        {%block content%}
+        {% endblock %}
+</body>

@@ -1,6 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +14,7 @@
                 alert("Redirecting to SearchPage. Please Enter Company Symbol!");
             </script>
             {% endif %}
-            <form method="POST" action="{% url 'majorApp:searching' %}">
+            <form method="POST" action="{% url 'majorApp:overview' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <select name="c_name" class="choose">

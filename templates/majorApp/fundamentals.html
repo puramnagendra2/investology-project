@@ -1,8 +1,10 @@
 {% load static %}
+
+{% load custom_filters %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tata Consultancy Services Ltd</title>
+    <title>{% block title %}Investology-Fundamentals{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/fundamentals.css' %}">
 </head>
 <body>
@@ -13,53 +15,82 @@
             <h1>{{ company_name }} Fundamentals</h1>
         </div>
         <div class="links1">
-            <a href="https://tcs.com">tcs.com</a>
-            <a href="#">BSE: 532540</a>
-            <a href="#">NSE: TCS</a>
+            <a href="#">Website: {{website}}</a>
+            <a href="#">NSE: {{company_name}}</a>
         </div>
         <div class="content1">
             <div class="info1">
                 <div class="row1">
                     <div class="col1">
                         <span class="label1">Market Cap</span>
-                        <span class="value1">₹ 13,27,764 Cr.</span>
+                        <span class="value1">₹ {{ market_cap|human_readable_large_number }}</span>
                     </div>
                     <div class="col1">
-                        <span class="label1">Current Price</span>
-                        <span class="value1">₹ 3,670</span>
-                    </div>
-			        <div class="col1">
-                        <span class="label1">Dividend Yield</span>
-                        <span class="value1">1.50%</span>
+                        <span class="label1">PE Ratio</span>
+                        <span class="value1">{{ forward_pe|floatformat:2 }}</span>
                     </div>
                     <div class="col1">
-                        <span class="label1">Dividend Yield</span>
-                        <span class="value1">1.50%</span>
+                        <span class="label1">PS Ratio</span>
+                        <span class="value1">{{ price_sales|floatformat:2 }}</span>
                     </div>
                 </div>
                 <div class="row1">
                     <div class="col1">
-                        <span class="label1">Market Cap</span>
-                        <span class="value1">₹ 13,27,764 Cr.</span>
+                        <span class="label1">PB</span>
+                        <span class="value1">{{ price_book|floatformat:2 }}</span>
                     </div>
                     <div class="col1">
-                        <span class="label1">Current Price</span>
-                        <span class="value1">₹ 3,670</span>
-                    </div>
-		            <div class="col1">
-                        <span class="label1">Dividend Yield</span>
-                        <span class="value1">1.50%</span>
+                        <span class="label1">OPM</span>
+                        <span class="value1">{{ operating_margin|floatformat:2 }}%</span>
                     </div>
                     <div class="col1">
-                        <span class="label1">Dividend Yield</span>
-                        <span class="value1">1.50%</span>
+                        <span class="label1">NPM</span>
+                        <span class="value1">{{ profit_margin|floatformat:2 }}%</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">ROE</span>
+                        <span class="value1">{{ return_on_equity|floatformat:2 }}%</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">ROA</span>
+                        <span class="value1">{{ return_on_assets|floatformat:2 }}%</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Total Debt</span>
+                        <span class="value1">₹ {{ total_debt|human_readable_large_number}}</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">Debt/Equity</span>
+                        <span class="value1">{{ debtToEquity | floatformat:2 }}</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">EPS</span>
+                        <span class="value1">{{EPS | floatformat:2}}</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Dividend Yeild</span>
+                        <span class="value1">{{ Dividend_Yield }}%</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">P\FCF</span>
+                        <span class="value1">{{ P_FCF }}</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">EV\EBIDTA</span>
+                        <span class="value1">{{ EV_EBITDA }}</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">EV\Revenue</span>
+                        <span class="value1">{{ EV_Revenue }}</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="actions1">
-            <button>EXPORT TO EXCEL</button>
-            <button>FOLLOW</button>
         </div>
     </div>
 {% endblock %}

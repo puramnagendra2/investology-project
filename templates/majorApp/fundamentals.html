@@ -1,15 +1,96 @@
 {% load static %}
 
 {% load custom_filters %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Investology-Fundamentals{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/fundamentals.css' %}">
 </head>
+
 <body>
-{% include 'majorApp/navigation.html' %}
-{% block content %}
+    {% include 'majorApp/navigation.html' %}
+    {% block content %}
+    <div class="container1" style="background-color: skyblue;">
+        <div class="header1">
+            <h1>Ideal Metrics for Fundamentals Analysis</h1>
+        </div>
+        <div class="content1">
+            <div class="info1">
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">Small Cap Company</span>
+                        <span class="value1"> < ₹ 5,000 Cr</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Mid Cap Company</span>
+                        <span class="value1">  ₹ 5,000 to ₹ 20,000 Cr</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Large Cap Company</span>
+                        <span class="value1"> > ₹ 20,000 Cr</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">Market Cap</span>
+                        <span class="value1">₹ {{ market_cap|human_readable_large_number }}</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">PE Ratio</span>
+                        <span class="value1"> Best if < 25</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">PS Ratio</span>
+                        <span class="value1">Best if < 1.5</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">PB</span>
+                        <span class="value1">Best if < 3</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">OPM</span>
+                        <span class="value1">Should be greater than previous Quarter or Year</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">NPM</span>
+                        <span class="value1">Greater than previous Quarter or Year</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">ROE</span>
+                        <span class="value1"> Greater than 20%</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">ROA</span>
+                        <span class="value1">Greater than 10%</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Total Debt</span>
+                        <span class="value1"> As Less As Possible</span>
+                    </div>
+                </div>
+                <div class="row1">
+                    <div class="col1">
+                        <span class="label1">Debt/Equity</span>
+                        <span class="value1">Less than 0.5</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">EPS</span>
+                        <span class="value1"> Higher when compared to peers</span>
+                    </div>
+                    <div class="col1">
+                        <span class="label1">Dividend Yeild</span>
+                        <span class="value1">Good if above 5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container1">
         <div class="header1">
             <h1>{{ company_name }} Fundamentals</h1>
@@ -93,4 +174,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}

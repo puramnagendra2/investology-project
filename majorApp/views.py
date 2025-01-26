@@ -37,8 +37,6 @@ def overview(request):
         else:
             c_name += ".NS"
             name = yf.Ticker(c_name)
-
-            # Mutualfund Shareholding
             mutual_fund_holders = name.mutualfund_holders
             fund_names = mutual_fund_holders['Holder']
             fund_percentages = mutual_fund_holders['pctHeld']
@@ -65,12 +63,10 @@ def navigation(request):
     if request.method == 'POST':
         cname = request.session.get('cname')
         action = request.POST.get('task')
-
         # Overview
         if action == 'overview':
             cname += ".NS"
             name = yf.Ticker(cname)
-
             # Mutualfund Shareholding
             mutual_fund_holders = name.mutualfund_holders
             fund_names = mutual_fund_holders['Holder']
@@ -84,7 +80,6 @@ def navigation(request):
                 pie = go.Figure(data=[go.Pie(labels=['No Data'], values=[100])])
                 pie.update_layout(title=f'No Data of Mutual Fund Holders Distribution for {cname}', width=1200)
                 pie_chart = pie.to_html(full_html=False)
-
             context = {'summary': get_summary(cname).replace(';', ','),
                        'c_name': cname,
                        'Total_Employees': name.info.get('fullTimeEmployees'),
